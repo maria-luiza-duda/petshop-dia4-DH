@@ -42,55 +42,34 @@ let pets = [{
         tutor: "Marinete",
         contato: "(81) 5555-5555",
         vacinado: true,
-        servicos: "banho"
+        servicos: []
     }
 ];
 
-/*const listarPets = () => {
-    //for(let i = 0; i < pets.length; i++){
-        //console.log(pets[i].nome + " " + pets[i].raca);
-        //console.log(`O nome do pet é ${pets[i].nome}` + ` e a sua raça é ${pets[i].raca}`)
-    //}
-    //for(let i = 0; i < pets.length; i++){
-        //console.log(pets[i].nome);
-    //}
+const novoCliente = () => {
+    pets.push({
+        nome: "Théo",
+        tipo: "Cachorro",
+        idade: 5,
+        raca: "Chitzu",
+        peso: 3,
+        tutor: "Malu",
+        contato: "81 3333-3333",
+        vacinado: false,
+        servicos: []
+    });
+    console.log(pets)
+}
+
+novoCliente();
+
+const listarPets = () => {
     for(let pet of pets){
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
     }
 }
 
-listarPets();*/
-
-/*const vacinarPet = () => {
-    for(let pet of pets){
-        console.log(`O pet ${pet.nome} foi vacinado? ${pet.vacinado}`)
-    }
-}
-vacinarPet();*/
-
-/*const vacinarPet = () => {
-    for(let pet of pets){
-        if(pet.vacinado == true){
-            console.log(`O pet ${pet.nome} não foi vacinado.`)
-        } 
-    }
-}
-
-vacinarPet();*/
-
-/*const vacinarPet = () => {
-    for (let pet of pets) {
-        if (pet.vacinado == false){
-            pet.vacinado = true;
-            console.log(`${pet.nome} foi vacinado.`)
-        }
-        else {
-            console.log(`Ops, ${pet.nome} já está vacinado.`)
-        }
-    }
-}
-
-vacinarPet();*/
+listarPets();
 
 const campanhaVacina = () => {
     var soma = 0;
@@ -99,7 +78,42 @@ const campanhaVacina = () => {
             soma++
         }
     }
-    console.log(`${soma} foram vacinados!`)
+    console.log(`${soma} pets foram vacinados!`)
 }
 
 campanhaVacina();
+
+
+const darBanhoPet = (pet) => {
+    for(let pet of pets){
+            if(!(pet.servicos.includes('banho'))){
+                pet.servicos.push('banho');
+                console.log(`${pet.nome} está de banho tomado!`);    
+        }
+    } 
+}   
+
+darBanhoPet();
+
+const tosarPet = (pet) => {
+    for(let pet of pets){
+            if(!(pet.servicos.includes('tosa'))){
+                pet.servicos.push('tosa');
+                console.log(`${pet.nome} está com o cabelinho na régua!`);    
+        }
+    } 
+}   
+
+tosarPet();
+
+const apararUnhasPet = (pet) => {
+    for(let pet of pets){
+            if(!(pet.servicos.includes('patacure'))){
+                pet.servicos.push('patacure');
+                console.log(`${pet.nome} está de unhas aparadas!`);    
+        }
+    } 
+}   
+
+apararUnhasPet();
+
