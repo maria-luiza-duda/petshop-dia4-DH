@@ -46,7 +46,7 @@ let pets = [{
     }
 ];
 
-const listarPets = () => {
+/*const listarPets = () => {
     //for(let i = 0; i < pets.length; i++){
         //console.log(pets[i].nome + " " + pets[i].raca);
         //console.log(`O nome do pet é ${pets[i].nome}` + ` e a sua raça é ${pets[i].raca}`)
@@ -59,5 +59,47 @@ const listarPets = () => {
     }
 }
 
-listarPets();
+listarPets();*/
 
+/*const vacinarPet = () => {
+    for(let pet of pets){
+        console.log(`O pet ${pet.nome} foi vacinado? ${pet.vacinado}`)
+    }
+}
+vacinarPet();*/
+
+/*const vacinarPet = () => {
+    for(let pet of pets){
+        if(pet.vacinado == true){
+            console.log(`O pet ${pet.nome} não foi vacinado.`)
+        } 
+    }
+}
+
+vacinarPet();*/
+
+/*const vacinarPet = () => {
+    for (let pet of pets) {
+        if (pet.vacinado == false){
+            pet.vacinado = true;
+            console.log(`${pet.nome} foi vacinado.`)
+        }
+        else {
+            console.log(`Ops, ${pet.nome} já está vacinado.`)
+        }
+    }
+}
+
+vacinarPet();*/
+
+const campanhaVacina = () => {
+    var soma = 0;
+    for (let pet of pets){
+        if (pet.vacinado == false) {
+            soma++
+        }
+    }
+    console.log(`${soma} foram vacinados!`)
+}
+
+campanhaVacina();
