@@ -47,11 +47,14 @@ let pets = [{
 ];
 
 const listarPets = () => {
-    for(let i = 0; i < pets.length; i++){
-        console.log(pets[i].nome);
+    //for(let i = 0; i < pets.length; i++){
+        //console.log(pets[i].nome + " " + pets[i].raca);
+        //console.log(`O nome do pet é ${pets[i].nome}` + ` e a sua raça é ${pets[i].raca}`)
+    //}
+    for(let pet of pets){
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
     }
 }
 
 listarPets();
 
-//console.log(pet);
