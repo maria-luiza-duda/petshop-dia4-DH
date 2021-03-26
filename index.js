@@ -1,6 +1,8 @@
+//const moment = require("moment");
 const nomePetShop = "PETSHOP"
 
-let pets = [{
+
+/*let pets = [{
         nome: "Billy",
         tipo: "Cachorro",
         idade: 1,
@@ -59,7 +61,7 @@ const novoCliente = () => {
         servicos: []
     });
     console.log(pets)
-}
+}*/
 
 novoCliente();
 
@@ -117,3 +119,4 @@ const apararUnhasPet = (pet) => {
 
 apararUnhasPet();
 
+console.log(JSON.stringify(pets))
