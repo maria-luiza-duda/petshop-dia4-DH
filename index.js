@@ -1,8 +1,9 @@
-//const moment = require("moment");
-const nomePetShop = "PETSHOP"
+const moment = require('moment');
+const nomePetshop = "PETSHOP AVANADE";
+const bancoDados = require('./pets.json');
 
 
-/*let pets = [{
+let pets = [{
         nome: "Billy",
         tipo: "Cachorro",
         idade: 1,
@@ -61,7 +62,7 @@ const novoCliente = () => {
         servicos: []
     });
     console.log(pets)
-}*/
+}
 
 novoCliente();
 

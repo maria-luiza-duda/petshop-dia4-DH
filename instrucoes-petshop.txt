@@ -1,0 +1,35 @@
+1 - DESAFIO PETSHOP - VACINA
+crie uma função chamada vacinarPet que recebe um pet como parametro e altera o atributo vacinado para true.
+imprima uma mensagem avisando qual o pet foi vacinado;
+
+* Só podemos vacinar pets que ainda NÃO foram vacinados, lembre-se de verificar e imprimir a mensagem de acordo com a condição.
+Exemplo:
+Costelinha foi vacinado com sucesso!
+ou
+Ops, Costelinha já está vacinado!
+
+2 - CAMPANHA DE VACINA
+crie uma nova função chamada campanhaVacina que percorre toda lista de pets e vacina todos os pets que precisam!
+imprima o numero de pets vacinados na campanha, exemplo:
+740 pets foram vaciados nessa campanha!
+
+3 - NOVO CLIENTE!
+crie uma função chamada adicionarPet que adicione um novo cliente na lista, incluindo todos os atributos necessários.
+por ser um novo cliente, a lista de serviços realizados deve estar vazia
+:bulb: Utilize .push para adicionar o pet a lista de pets
+
+4 - Serviços do petshop
+Crie uma função chamada darBanhoPet(pet) que adiciona o 'banho' a lista de serviços no historico do pet e exibe a mensagem <Nome do Pet> está de banho tomado!
+ Crie uma função chamada tosarPet(pet) que adiciona o 'tosa' a lista de serviços no historico do pet e exibe a mensagem <Nome do Pet> está com cabelinho na régua
+  Crie uma função chamada apararUnhasPet(pet) que adiciona o 'corte de unhas' a lista de serviços no historico do pet e exibe a mensagem <Nome do Pet>  está de unhas aparadas!
+(O pet pode solicitar o mesmo serviço mais de 1 vez)
+
+5 - Desafio JSON (opcional)
+Todas as funções que alteram o objeto do pet precisam ser refatoradas para alterar o arquivo JSON. Dica: utilize JSON.parse e JSON.stringify . Dica: pesquise sobre o módulo filesystem para node.js
+(edited)
+
+6 - Desafio IF Ternário:
+Utilize if ternário para imprimir 'vacinado' ou 'não vacinado' na função listarPets
+
+7 - Desafio Callback:
+crie uma função chamada atenderCliente(pet, servico) que recebe como parametro 1 pet e uma função de serviço(darBanhoPet, tosarPet, apararUnhasPet)
