@@ -1,5 +1,6 @@
-let bancoDados = request();
+let bancoDados = require('./pets.json');
 
+let pets = bancoDados.pets;
 
 const atenderCliente = (pet, servico) => {
     console.log(`Olá, ${pet.nome}`);

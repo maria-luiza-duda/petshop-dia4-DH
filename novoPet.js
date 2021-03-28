@@ -1,6 +1,6 @@
 const moment = require('moment');
 const nomePetshop = "PETSHOP AVANADE";
-const petsjson = require('./pets.json');
+let petsjson = require("./pets.json")
 
 const novoCliente = () => {
     pets.push({

@@ -2,78 +2,47 @@ const moment = require('moment');
 const nomePetshop = "PETSHOP AVANADE";
 const bancoDados = require('./pets.json');
 
+let pets = bancoDados.pets;
 
-let pets = [{
-        nome: "Billy",
-        tipo: "Cachorro",
-        idade: 1,
-        raca: "Poodle",
-        peso: 2,
-        tutor: "Malu",
-        contato: "(81) 98346-8310",
-        vacinado: true,
-        servicos: ["banho", "tosa"]
-    },
-    {
-        nome: "Negão",
-        tipo: "Cachorro",
-        idade: 16,
-        raca: "Vira-lata",
-        peso: 5,
-        tutor: "Marinete",
-        contato: "(81) 5555-5555",
-        vacinado: true,
-        servicos: ["banho", "tosa"]
-    },
-    {
-        nome: "Paco",
-        tipo: "Gato",
-        idade: 4,
-        raca: "Vira-lata",
-        peso: 5,
-        tutor: "Maria Eduarda",
-        contato: "(81) 4444-5555",
-        vacinado: false,
-        servicos: ["banho","corte de unha"]
-    },
-    {
-        nome: "Patrick",
-        tipo: "Coelho",
-        idade: 2,
-        raca: "coelho",
-        peso: 4,
-        tutor: "Marinete",
-        contato: "(81) 5555-5555",
-        vacinado: true,
-        servicos: []
+//Para adicionar um novo pet cliente 
+const adicionarPet = novoPet => {
+    if (typeof novoPet == "object" && validarDados(novoPet)) {
+        
+        novoPet.nome = String(novoPet.nome);
+        novoPet.tipo = String(novoPet.tipo);
+        novoPet.idade = parseInt(novoPet.idade);
+        novoPet.raca = String(novoPet.raca);
+        novoPet.peso = parseInt(novoPet.peso);
+        novoPet.tutor = String(novoPet.tutor);
+        novoPet.contato = String(novoPet.contato);
+        novoPet.vacinado = Boolean(novoPet.vacinado);
+
+        if (!novoPet.servicos) {
+            novoPet.servicos = [];
+        }
+
+        pets.push(novoPet);
+    } else {
+        console.log("Ops, insira um argumento valido!");
     }
-];
-
-const novoCliente = () => {
-    pets.push({
-        nome: "Théo",
-        tipo: "Cachorro",
-        idade: 5,
-        raca: "Chitzu",
-        peso: 3,
-        tutor: "Malu",
-        contato: "81 3333-3333",
-        vacinado: false,
-        servicos: []
-    });
-    console.log(pets)
 }
 
-novoCliente();
+//Chamar aqui a funcao adicionarPet()
 
+//Lista atualizada dos pets com If ternario pets vacinados
 const listarPets = () => {
     for(let pet of pets){
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
     }
+    var vacinado = true
+    var retorno = vacinado == "Pet vacinado" ? "Ainda precisa ser vacinado":
+
+    console.log(retorno)
 }
 
 listarPets();
 
+//Vacinar os pets que ainda não foram vacinados
 const campanhaVacina = () => {
     var soma = 0;
     for (let pet of pets){
@@ -84,40 +53,36 @@ const campanhaVacina = () => {
     console.log(`${soma} pets foram vacinados!`)
 }
 
-campanhaVacina();
+//Adcionar aqui a funcao da campanhaVacina
 
-
-const darBanhoPet = (pet) => {
-    for(let pet of pets){
-            if(!(pet.servicos.includes('banho'))){
-                pet.servicos.push('banho');
-                console.log(`${pet.nome} está de banho tomado!`);    
-        }
+//Adicionar serviço de banho nos pets
+const darBanhoPet = pet => {
+    for (const pet of pets) {
+        pet.servicos.push('banho');
+        console.log(`${pet.nome} está de banho tomado!`);  
     } 
-}   
+};
 
 darBanhoPet();
 
-const tosarPet = (pet) => {
-    for(let pet of pets){
-            if(!(pet.servicos.includes('tosa'))){
-                pet.servicos.push('tosa');
-                console.log(`${pet.nome} está com o cabelinho na régua!`);    
-        }
+//Adicionar serviço de tosa nos pets
+const tosarPet = pet => {
+    for (const pet of pets) {
+        pet.servicos.push('tosa');
+        console.log(`${pet.nome} está com cabelinho na régua`);  
     } 
-}   
+};
 
 tosarPet();
 
-const apararUnhasPet = (pet) => {
-    for(let pet of pets){
-            if(!(pet.servicos.includes('patacure'))){
-                pet.servicos.push('patacure');
-                console.log(`${pet.nome} está de unhas aparadas!`);    
-        }
+//Adicionar serviço de patacure nos pets
+const apararUnhasPet = pet => {
+    for (const pet of pets) {
+        pet.servicos.push('patacure');
+        console.log(`${pet.nome} está de unhas aparadas!`);
     } 
-}   
+};
 
 apararUnhasPet();
 
-console.log(JSON.stringify(pets))
+//console.log(JSON.stringify(pets))
