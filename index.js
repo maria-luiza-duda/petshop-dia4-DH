@@ -1,8 +1,23 @@
 const moment = require('moment');
+const fs = require('fs');
+let bancoDados = fs.readFileSync('./pets.json');
 const nomePetshop = "PETSHOP AVANADE";
-const bancoDados = require('./pets.json');
 
-let pets = bancoDados.pets;
+bancoDados = JSON.parse(bancoDados);
+
+const atualizarBanco = () => {
+    let petsAtualizado = JSON.stringify(bancoDados);
+
+    fs.writeFileSync('pets.json', petsAtualizado, 'utf-8')
+}
+
+//Lista atualizada dos pets com If ternario pets vacinados
+const listarPets = () => {
+    for(let pet of bancoDados.pets){
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}`);
+    }
+}
+//listarPets();
 
 //Para adicionar um novo pet cliente 
 const adicionarPet = novoPet => {
@@ -21,31 +36,20 @@ const adicionarPet = novoPet => {
             novoPet.servicos = [];
         }
 
-        pets.push(novoPet);
+        bancoDados.pets.push(novoPet);
     } else {
         console.log("Ops, insira um argumento valido!");
     }
 }
 
 //Chamar aqui a funcao adicionarPet()
+       
 
-//Lista atualizada dos pets com If ternario pets vacinados
-const listarPets = () => {
-    for(let pet of pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
-    }
-    var vacinado = true
-    var retorno = vacinado == "Pet vacinado" ? "Ainda precisa ser vacinado":
-
-    console.log(retorno)
-}
-
-listarPets();
 
 //Vacinar os pets que ainda não foram vacinados
 const campanhaVacina = () => {
     var soma = 0;
-    for (let pet of pets){
+    for (let pet of bancoDados.pets){
         if (pet.vacinado == false) {
             soma++
         }
@@ -57,7 +61,7 @@ const campanhaVacina = () => {
 
 //Adicionar serviço de banho nos pets
 const darBanhoPet = pet => {
-    for (const pet of pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('banho');
         console.log(`${pet.nome} está de banho tomado!`);  
     } 
@@ -67,7 +71,7 @@ darBanhoPet();
 
 //Adicionar serviço de tosa nos pets
 const tosarPet = pet => {
-    for (const pet of pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('tosa');
         console.log(`${pet.nome} está com cabelinho na régua`);  
     } 
@@ -77,7 +81,7 @@ tosarPet();
 
 //Adicionar serviço de patacure nos pets
 const apararUnhasPet = pet => {
-    for (const pet of pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('patacure');
         console.log(`${pet.nome} está de unhas aparadas!`);
     } 
@@ -86,3 +90,5 @@ const apararUnhasPet = pet => {
 apararUnhasPet();
 
 //console.log(JSON.stringify(pets))
+
+listarPets()

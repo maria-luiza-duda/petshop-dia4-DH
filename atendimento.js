@@ -13,4 +13,14 @@ const darBanhoPet = () => {
     console.log('dando banho no pet...');
 }
 
+const tosarPet = () => {
+    console.log('cortando as unhas do pet...');
+}
+
+const apararUnhasPet = () => {
+    console.log('dando banho no pet...');
+}
+
 atenderCliente(pets[0], darBanhoPet);
+atenderCliente(pets[0], tosarPet);
+atenderCliente(pets[0], apararUnhasPet);

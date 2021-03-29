@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "fs": "0.0.1-security"
   }
 }
