@@ -1,29 +1,29 @@
 const moment = require('moment');
 const fs = require('fs');
-let bancoPets = fs.readFileSync('./bancoPets.json');
+let bancoDados = fs.readFileSync('./bancoPets.json');
 const nomePetshop = "PETSHOP AVANADE";
 
-bancoPets = JSON.parse(bancoPets);
+bancoDados = JSON.parse(bancoDados);
 
 const atualizarBanco = () => {
-    let petsAtualizado = JSON.stringify(bancoPets);
+    let petsAtualizado = JSON.stringify(bancoDados);
 
     fs.writeFileSync('bancoPets.json', petsAtualizado, 'utf-8')
 }
 
 const listarPets = () => {
-    for(let pet of bancoPets.pets){
+    for(let pet of bancoDados.pets){
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}`);
     }
 
-    // bancoPets.forEach((pet) => {
-    //     let {nome, idade, tipo, raca} = pet;
-    //     console.log(`${nome}, ${nome}, ${idade}, ${tipo}, ${raca}`);
+    bancoDados.pets.forEach((pet) => {
+        let {nome, idade, tipo, raca} = pet;
+        console.log(`${nome}, ${nome}, ${idade}, ${tipo}, ${raca}`);
 
-    //     pet.servicos.forEach((servico) => {
-    //         console.log(`${servico.data} - ${servico.nome}`)
-    //     })
-    // });
+        pet.servicos.forEach((servico) => {
+            console.log(`${servico.data} - ${servico.nome}`)
+        })
+    });
 }
 listarPets();
 
@@ -66,7 +66,7 @@ campanhaVacina();
 
 
 const darBanhoPet = pet => {
-    for (const pet of bancoPets.pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('banho');
         console.log(`${pet.nome} está de banho tomado!`);  
     } 
@@ -76,7 +76,7 @@ darBanhoPet();
 
 //Adicionar serviço de tosa nos pets
 const tosarPet = pet => {
-    for (const pet of bancoPets.pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('tosa');
         console.log(`${pet.nome} está com cabelinho na régua`);  
     } 
@@ -86,7 +86,7 @@ tosarPet();
 
 //Adicionar serviço de patacure nos pets
 const apararUnhasPet = pet => {
-    for (const pet of bancoPets.pets) {
+    for (const pet of bancoDados.pets) {
         pet.servicos.push('patacure');
         console.log(`${pet.nome} está de unhas aparadas!`);
     } 
